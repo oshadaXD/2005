@@ -16,7 +16,8 @@
 "PACKNAME": {
   "description": "Packname Of sticker",
   "required":false
-},
+}
+  },
 "buildpacks": [
 
   {
