@@ -173,43 +173,7 @@ global.reloadHandler = function (restatConn) {
    
 }
 
-let pluginFolder = path.join(__dirname, 'plugins')
-let pluginFilter = filename => /\.js$/.test(filename)
-global.plugins = {}
-for (let filename of fs.readdirSync(pluginFolder).filter(pluginFilter)) {
-  try {
-    global.plugins[filename] = require(path.join(pluginFolder, filename))
-  } catch (e) {
-    conn.logger.error(e)
-    delete global.plugins[filename]
-  }
-}
-//console.log(Object.keys(global.plugins))
-global.reload = (_ev, filename) => {
-  if (pluginFilter(filename)) {
-    let dir = path.join(pluginFolder, filename)
-    if (dir in require.cache) {
-      delete require.cache[dir]
-      if (fs.existsSync(dir)) conn.logger.info(`re - require plugin '${filename}'`)
-      else {
-        conn.logger.warn(`deleted plugin '${filename}'`)
-        return delete global.plugins[filename]
-      }
-    } else conn.logger.info(`requiring new plugin '${filename}'`)
-    let err = syntaxerror(fs.readFileSync(dir), filename)
-    if (err) conn.logger.error(`syntax error while loading '${filename}'\n${err}`)
-    else try {
-      global.plugins[filename] = require(dir)
-    } catch (e) {
-      conn.logger.error(e)
-    } finally {
-      global.plugins = Object.fromEntries(Object.entries(global.plugins).sort(([a], [b]) => a.localeCompare(b)))
-    }
-  }
-}
-Object.freeze(global.reload)
-fs.watch(path.join(__dirname, 'plugins'), global.reload)
-global.reloadHandler()
+
 
 // Quick Test
 async function _quickTest() {
