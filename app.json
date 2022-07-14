@@ -1,0 +1,29 @@
+{
+  "name": "Millie-MD",
+  "logo": "https://raw.githubusercontent.com/Neeraj-x0/Millie/main/Millie/millie.jpg",
+  "description": "WhatsApp Bot",
+  "repository": "https://github.com/oshadaXD/444444444",
+  "keywords": ["bot","whatsapp","whatsapp-bot"],
+  "env": {
+ 
+"PACKNAME": {
+  "description": "Packname Of sticker",
+  "required":false
+}
+},
+"buildpacks": [
+
+  {
+
+      "url": "heroku/nodejs"
+
+  },
+
+  {
+
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+
+  }
+
+]
+}
