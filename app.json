@@ -9,10 +9,26 @@
     "description": "The session ID you Recieved",
     "required": true
     },
-
+"AUTHOR": {
+    "description": "Author Of sticker",
+    "required": false
+},
 "PACKNAME": {
   "description": "Packname Of sticker",
   "required":false
+},
+"IMAGE": {
+  "description": "Global Image",
+  "required":false
+},
+"WATERMARK": {
+  "description": "Watermark For Buttons",
+  "required": true
+},
+"BOT_NAME": {
+  "description": "BOT NAME",
+  "required": true
+}
 
 },
 "buildpacks": [
