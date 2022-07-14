@@ -2,19 +2,18 @@
   "name": "Millie-MD",
   "logo": "https://raw.githubusercontent.com/Neeraj-x0/Millie/main/Millie/millie.jpg",
   "description": "WhatsApp Bot",
-  "repository": "https://github.com/oshadaXD/2005",
+  "repository": "https://github.com/Neeraj-x0/Millie-MD",
   "keywords": ["bot","whatsapp","whatsapp-bot"],
   "env": {
- 
-"PACKNAME": {
-  "description": "Packname Of sticker",
-  "required":false
-},
-    "SESSION_ID": {
+ "SESSION_ID": {
     "description": "The session ID you Recieved",
     "required": true
     },
-}
+
+"PACKNAME": {
+  "description": "Packname Of sticker",
+  "required":false
+
 },
 "buildpacks": [
 
@@ -27,12 +26,8 @@
   {
 
       "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-   
 
-  },
-{  
-  "url" : "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"
-
-
-}
   }
+
+]
+}
